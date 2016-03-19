@@ -9,7 +9,7 @@ Inherits `QSlider`.
 # Languages
 
 * Python
-* C++ (incomplete)
+* C++ (incomplete; do not use)
 
 # Demo
 
@@ -40,6 +40,8 @@ QToggleSwitch *toggleSwitch = new QToggleSwitch::QToggleSwitch();
 Default value of switch is 0 (off). This can be changed by passing the
 `default=` argument on intitialization. This argument accepts
 `0` for off and `1` for on.
+
+NOTE: Not yet supported in C++ version.
 
 ## Signals
 
