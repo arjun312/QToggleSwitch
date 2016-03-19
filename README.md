@@ -15,10 +15,7 @@ Inherits `QSlider`.
 
 (Requires `PyQt5`)
 
-Demos written in Python 2 and 3 are included.
-
-* For Python 2 demo: Run `demo/QToggleSwitch_demo_python2.py`
-* For Python 3 demo: Run `demo/QToggleSwitch_demo.py`
+A demo written in Python is included. Run `demo/QToggleSwitch_demo.py`.
 
 # Documentation
 

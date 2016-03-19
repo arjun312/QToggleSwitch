@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 # Demo of QToggleSwitch
 
@@ -6,18 +6,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import QToggleSwitch
 from sys import argv
 
-
-def message():
-
-    print("Toggled.")
-
-def onMessage():
-
-    print("Switched on.")
-
-def offMessage():
-
-    print("Switched off.")
 
 def documentationDialog():
 
@@ -28,7 +16,7 @@ def documentationDialog():
 
     Inherits <code>QSlider</code>.<br />
 
-    Licensed under the Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0
+    Licensed under the <a href=http://www.apache.org/licenses/LICENSE-2.0>Apache License 2.0</a>.
 
     <h2>Parameters:</h2>
 
@@ -66,11 +54,15 @@ app = QtWidgets.QApplication(argv)
 
 mainWindow = QtWidgets.QMainWindow()
 
+mainWindow.setWindowTitle('QToggleSwitch')
+
 switch = QToggleSwitch.QToggleSwitch(default=0)
 
 documentationButton = QtWidgets.QPushButton('Documentation')
 
 documentationButton.clicked.connect(documentationDialog)
+
+pressLog = QtWidgets.QListWidget()
 
 mainWidget = QtWidgets.QWidget()
 
@@ -80,11 +72,33 @@ layout.addWidget(switch)
 
 layout.addWidget(documentationButton)
 
+layout.addWidget(pressLog)
+
 mainWidget.setLayout(layout)
 
 mainWindow.setCentralWidget(mainWidget)
 
 mainWindow.show()
+
+
+def message():
+
+    global pressLog
+
+    pressLog.addItem('Toggled. - signal toggled')
+
+def onMessage():
+
+    global pressLog
+
+    pressLog.addItem('Switched on. - signal switchedOn')
+
+def offMessage():
+
+    global pressLog
+
+    pressLog.addItem('Switched off. - signal switchedOff')
+
 
 switch.toggled.connect(message)
 

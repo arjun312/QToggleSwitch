@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# QToggleSwitch
+
 # Copyright (c) 2016 Bharadwaj Raju All Rights Reserved.
 
 # Licensed under the Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0
