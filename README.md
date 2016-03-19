@@ -32,7 +32,7 @@ toggleSwitch = QToggleSwitch.QToggleSwitch(default=0)
 ```cpp
 #include "QToggleSwitch.hpp"
 
-QToggleSwitch *toggleSwitch = new QToggleSwitch::QToggleSwitch();
+QToggleSwitch *toggleSwitch = new QToggleSwitch();
 ```
 
 ## Parameters

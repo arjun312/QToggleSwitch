@@ -10,13 +10,18 @@
 #include <QtCore>
 #include <QObject>
 #include <QSlider>
-#include "QToggleSwitch.h"
+#include "QToggleSwitch.hpp"
+#include <iostream>
+#include <string>
 
 
-void QToggleSwitch::QToggleSwitch(int defaultValue=0)
+QToggleSwitch::QToggleSwitch()
 {
+    int defaultValue = 0;
 
-    QSlider(this, Qt::Horizontal);
+    //TODO: Allow parameter checking in C++ version
+
+    QSlider(Qt::Horizontal);
 
     this->setMaximumWidth(30);
 
@@ -28,22 +33,23 @@ void QToggleSwitch::QToggleSwitch(int defaultValue=0)
 
     this->setSliderPosition(defaultValue);
 
-    this->sliderReleased->connect(this->toggle);
+    connect(this, QSlider::sliderReleased, toggleWrapper);
 
 }
 
 
 void QToggleSwitch::toggle()
 {
+    extern int currentValue;
 
-    if (value == 1)
+    if (this->value() == 1)
     {
 
         this->setSliderPosition(0);
 
         currentValue = 0;
 
-        this->value = 0;
+        this->setValue(0);
 
         emit toggled();
 
@@ -58,20 +64,26 @@ void QToggleSwitch::toggle()
 
         currentValue = 1;
 
-        value = 1;
+        this->setValue(1);
 
-        emit this.toggled;
+        emit toggled();
 
-        emit this.switchedOn;
+        emit switchedOn();
 
     }
 }
 
 bool QToggleSwitch::isOn()
 {
+    extern int currentValue;
 
     if (currentValue == 1) { return true; }
 
     else { return false; }
 
+}
+
+void QToggleSwitch::toggleWrapper(QToggleSwitch *toggleSwitch)
+{
+    toggleSwitch->toggle();
 }

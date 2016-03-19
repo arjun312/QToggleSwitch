@@ -6,10 +6,12 @@
 
  */
 
+#include <QSlider>
+
 #ifndef QTOGGLESWITCH_H
 #define  QTOGGLESWITCH_H
 
-class QToggleSwitch : public QSlider():
+class QToggleSwitch : public QSlider {
 
     /* # QToggleSwitch - An on/off switch for Qt
 
@@ -41,9 +43,13 @@ class QToggleSwitch : public QSlider():
 
     public:
 
-        QToggleSwitch(int defaultValue);
+        QToggleSwitch();
 
         bool isOn();
+
+        static void toggleWrapper(QToggleSwitch *toggleSwitch);
+
+        void toggle();
 
     signals:
 
@@ -53,9 +59,7 @@ class QToggleSwitch : public QSlider():
 
         void switchedOff();
 
-    slots:
-
-        void toggle();
+};
 
 
 #endif
