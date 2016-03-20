@@ -54,8 +54,6 @@ class QToggleSwitch(QtWidgets.QSlider):
 
         self.setMaximum(1)
 
-        self.currentValue = default
-
         self.setSliderPosition(default)
 
         self.sliderReleased.connect(self.toggle)
@@ -66,9 +64,7 @@ class QToggleSwitch(QtWidgets.QSlider):
 
             self.setSliderPosition(0)
 
-            self.currentValue = 0
-
-            self.value = 0
+            self.setValue(0)
 
             self.toggled.emit()
 
@@ -78,9 +74,7 @@ class QToggleSwitch(QtWidgets.QSlider):
 
             self.setSliderPosition(1)
 
-            self.currentValue = 1
-
-            self.value = 1
+            self.setValue(0)
 
             self.toggled.emit()
 
